@@ -37,7 +37,16 @@ string [] FillResArray(string [] array, int num)
 
 void PrintArray(string [] array)
 {
-    Print
+  System.Console.WriteLine($"[{string.Join(", ", array)}]");
 }
 
+// // Program itself
 
+Console.WriteLine("Hi! I can take some words from you and return only those less or equal three character. Please, enter a total number of word we'll check:"); // Program introduces itself and requests an array size
+int num = Convert.ToInt32(Console.ReadLine()); // User inputs the array size
+string [] wordStore = new string [num]; // Declare an initial array;
+ManFillArray(wordStore); // Call the method to fill the array manually
+int newArrSize = SymbolCounter(wordStore); // Call the method to count the array element which less or equal three
+string [] resArray = new string [newArrSize];
+resArray = FillResArray(wordStore, newArrSize); // Call the method to fill a new array with the elements which less or equal three
+PrintArray(resArray); // Call the method to print the resul array
