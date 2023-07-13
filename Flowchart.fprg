@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="nepur"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-07-13 03:07:16 "/>
+        <attribute name="created" value="bmVwdXI7TkVQVVJHRU47MjAyMy0wNy0xMjsiMDQ6MDc6NTYgIjsyMzYw"/>
+        <attribute name="edited" value="bmVwdXI7TkVQVVJHRU47MjAyMy0wNy0xMjsiMDQ6MTY6MTEgIjsxO25lcHVyO05FUFVSR0VOOzIwMjMtMDItMjM7IjAyOjEyOjQ5ICI70KHQtdC80LjQvdCw0YAgMl/QlNCXIDRf0KHRgNC10LTQvdC10LUg0LDRgNC40YTQvNC10YLQuNGH0LXRgdC60L7QtSDQvNCw0YHRgdC40LLQsF/QstCy0L7QtCDQt9C90LDRh9C10L3QuNC5LmZwcmc7NTg4MTg="/>
+        <attribute name="edited" value="bmVwdXI7TkVQVVJHRU47MjAyMy0wNy0xMzsiMDM6MDc6MTYgIjs0OzI0Njc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Hi! I can take some words from you and return only those less or equal three character. Please, enter a total number of word we'll check:&quot;" newline="True"/>
+            <declare name="num" type="Integer" array="False" size=""/>
+            <input variable="num"/>
+            <declare name="WordStore" type="String" array="True" size="num"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <while expression="i&lt;num">
+                <output expression="&quot;Please, enter a word&quot;" newline="True"/>
+                <input variable="WordStore[i]"/>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <declare name="count" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="0"/>
+            <assign variable="i" expression="0"/>
+            <while expression="i&lt;num">
+                <if expression="WordStore[i].Length &lt;= 3">
+                    <then>
+                        <assign variable="count" expression="count+1"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <declare name="ResWords" type="String" array="True" size="count"/>
+            <declare name="j" type="Integer" array="False" size=""/>
+            <for variable="i" start="0" end="num" direction="inc" step="1">
+                <if expression="WordStore[i].Length &lt;= 3">
+                    <then>
+                        <assign variable="ResWords[j]" expression="WordStore[i]"/>
+                        <assign variable="j" expression="j+1"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="i" expression="i+1"/>
+            </for>
+            <output expression="ResWords" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
